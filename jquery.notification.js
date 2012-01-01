@@ -32,7 +32,7 @@
 		
 		function hide() {
 			clearTimeout(timeout);
-			notification.fadeOut(settings.hideSpeed, function () {
+			notification.fadeOut(settings.hideSpeed, function() {
 				$(this).remove();
 			});
 		}
