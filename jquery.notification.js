@@ -1,5 +1,5 @@
 /*
- * jQuery Notifications - v1.0
+ * jQuery Notification
  *
  * Copyright 2011 Cory LaViska for A Beautiful Site, LLC. (http://abeautifulsite.net/)
  *
@@ -10,7 +10,7 @@
 
 	$.notification = function (message, settings) {
 		
-		if (message === undefined || message === null ) return;
+		if( message === '' || message === undefined || message === null ) return;
 		
 		// Merge settings with defaults
 		settings = $.extend(true, {
@@ -29,7 +29,14 @@
 			scrollTop = $(window).scrollTop(),
 			scrollLeft = $(window).scrollLeft(),
 			timeout, notification = $('<div id="jquery-notification" />');
-
+		
+		function hide() {
+			clearTimeout(timeout);
+			notification.fadeOut(settings.hideSpeed, function () {
+				$(this).remove();
+			});
+		}
+		
 		// Skip the animation if a notification is already showing
 		if ($('#jquery-notification').length > 0) settings.showSpeed = 0;
 
@@ -47,16 +54,9 @@
 		}).mouseout(function () {
 			$(this).removeClass(settings.className + '-hover');
 			if (settings.freezeOnHover) {
-				timeout = setTimeout(function () {
-					notification.trigger('click');
-				}, settings.duration);
+				timeout = setTimeout(hide, settings.duration);
 			}
-		}).click(function () {
-			clearTimeout(timeout);
-			notification.fadeOut(settings.hideSpeed, function () {
-				$(this).remove();
-			});
-		}).wrapInner('<div id="jquery-notification-message" />');
+		}).click(hide).wrapInner('<div id="jquery-notification-message" />');
 
 		// Position it
 		width = notification.outerWidth();
@@ -101,18 +101,16 @@
 			left = windowWidth / 2 - width / 2 + scrollLeft;
 			break;
 		}
-
+		
 		// Show it
 		notification.css({
 			top: top,
 			left: left
 		}).fadeIn(settings.showSpeed, function () {
 			// Hide it
-			timeout = setTimeout(function () {
-				notification.trigger('click');
-			}, settings.duration);
+			timeout = setTimeout(hide, settings.duration);
 		});
-
+		
 	};
 
 })(jQuery);

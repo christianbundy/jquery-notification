@@ -15,3 +15,8 @@ Usage
 			showSpeed: 250,
 			zIndex: 99999
 		});
+
+
+Demo
+	
+	http://labs.abeautifulsite.dev/jquery-notification/
