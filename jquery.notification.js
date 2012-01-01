@@ -6,9 +6,9 @@
  * Dual licensed under the MIT or GPL Version 2 licenses
  *
  */
-(function ($) {
+(function($) {
 
-	$.notification = function (message, settings) {
+	$.notification = function(message, settings) {
 		
 		if( message === '' || message === undefined || message === null ) return;
 		
@@ -62,7 +62,7 @@
 		width = notification.outerWidth();
 		height = notification.outerHeight();
 
-		switch (settings.position) {
+		switch( settings.position ) {
 		case 'top':
 			top = 0 + scrollTop;
 			left = windowWidth / 2 - width / 2 + scrollLeft;
@@ -106,7 +106,7 @@
 		notification.css({
 			top: top,
 			left: left
-		}).fadeIn(settings.showSpeed, function () {
+		}).fadeIn(settings.showSpeed, function() {
 			// Hide it
 			timeout = setTimeout(hide, settings.duration);
 		});
