@@ -20,7 +20,8 @@
 			hideSpeed: 250,
 			position: 'center',
 			showSpeed: 250,
-			zIndex: 99999
+			zIndex: 99999,
+			fixed: false
 		}, settings);
 
 		// Variables
@@ -45,7 +46,7 @@
 
 		// Create it
 		notification.appendTo($('BODY')).addClass(settings.className).text(message).css({
-			position: 'absolute',
+			position: settings.fixed ? 'fixed' : 'absolute',
 			display: 'none',
 			zIndex: settings.zIndex
 		}).mouseover(function () {
