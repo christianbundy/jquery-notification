@@ -21,7 +21,7 @@
 			position: 'center',
 			showSpeed: 250,
 			zIndex: 99999,
-			fixed: false
+			fixed: true
 		}, settings);
 
 		// Variables
