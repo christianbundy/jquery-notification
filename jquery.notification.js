@@ -21,15 +21,22 @@
 			position: 'center',
 			showSpeed: 250,
 			zIndex: 99999,
-			fixed: true
 		}, settings);
-
+		
+		// Skip the animation if a notification is already showing
+		if( $('#jquery-notification').length > 0 ) settings.showSpeed = 0;
+		
+		// Clear old notifications
+		$('#jquery-notification').remove();
+		
 		// Variables
-		var width, height, top, left, windowWidth = $(window).width(),
+		var width, height, top, left,
+			windowWidth = $(window).width(),
 			windowHeight = $(window).height(),
-			scrollTop = $(window).scrollTop(),
-			scrollLeft = $(window).scrollLeft(),
-			timeout, notification = $('<div id="jquery-notification" />');
+			timeout,
+			notification = $('<div id="jquery-notification" />');
+		
+		console.log( 'Window height: ' + windowHeight );
 		
 		function hide() {
 			clearTimeout(timeout);
@@ -38,15 +45,9 @@
 			});
 		}
 		
-		// Skip the animation if a notification is already showing
-		if ($('#jquery-notification').length > 0) settings.showSpeed = 0;
-
-		// Clear old notifications
-		$('#jquery-notification').remove();
-
 		// Create it
 		notification.appendTo($('BODY')).addClass(settings.className).text(message).css({
-			position: settings.fixed ? 'fixed' : 'absolute',
+			position: 'fixed',
 			display: 'none',
 			zIndex: settings.zIndex
 		}).mouseover(function () {
@@ -64,44 +65,44 @@
 		height = notification.outerHeight();
 
 		switch( settings.position ) {
-		case 'top':
-			top = 0 + scrollTop;
-			left = windowWidth / 2 - width / 2 + scrollLeft;
-			break;
-		case 'top-left':
-			top = 0 + scrollTop;
-			left = 0 + scrollLeft;
-			break;
-		case 'top-right':
-			top = 0 + scrollTop;
-			left = windowWidth - width + scrollLeft;
-			break;
-		case 'bottom':
-			top = windowHeight - height + scrollTop;
-			left = windowWidth / 2 - width / 2 + scrollLeft;
-			break;
-		case 'bottom-left':
-			top = windowHeight - height + scrollTop;
-			left = 0 + scrollLeft;
-			break;
-		case 'bottom-right':
-			top = windowHeight - height + scrollTop;
-			left = windowWidth - width + scrollLeft;
-			break;
-		case 'left':
-			top = windowHeight / 2 - height / 2 + scrollTop;
-			left = 0 + scrollLeft;
-			break;
-		case 'right':
-			top = windowHeight / 2 - height / 2 + scrollTop;
-			left = windowWidth - width + scrollLeft;
-			break;
-		default:
-		case 'center':
-			top = windowHeight / 2 - height / 2 + scrollTop;
-			left = windowWidth / 2 - width / 2 + scrollLeft;
-			break;
-		}
+			case 'top':
+				top = 0;
+				left = windowWidth / 2 - width / 2;
+				break;
+			case 'top-left':
+				top = 0;
+				left = 0;
+				break;
+			case 'top-right':
+				top = 0;
+				left = windowWidth - width;
+				break;
+			case 'bottom':
+				top = windowHeight - height;
+				left = windowWidth / 2 - width / 2;
+				break;
+			case 'bottom-left':
+				top = windowHeight - height;
+				left = 0;
+				break;
+			case 'bottom-right':
+				top = windowHeight - height;
+				left = windowWidth - width;
+				break;
+			case 'left':
+				top = windowHeight / 2 - height / 2;
+				left = 0;
+				break;
+			case 'right':
+				top = windowHeight / 2 - height / 2;
+				left = windowWidth - width;
+				break;
+			default:
+			case 'center':
+				top = windowHeight / 2 - height / 2;
+				left = windowWidth / 2 - width / 2;
+				break;
+			}
 		
 		// Show it
 		notification.css({
