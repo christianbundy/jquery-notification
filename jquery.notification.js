@@ -36,8 +36,6 @@
 			timeout,
 			notification = $('<div id="jquery-notification" />');
 		
-		console.log( 'Window height: ' + windowHeight );
-		
 		function hide() {
 			clearTimeout(timeout);
 			notification.fadeOut(settings.hideSpeed, function() {
