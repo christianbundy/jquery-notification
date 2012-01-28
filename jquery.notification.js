@@ -20,7 +20,7 @@
 			hideSpeed: 250,
 			position: 'center',
 			showSpeed: 250,
-			zIndex: 99999,
+			zIndex: 99999
 		}, settings);
 		
 		// Skip the animation if a notification is already showing
