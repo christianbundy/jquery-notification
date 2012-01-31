@@ -1,4 +1,4 @@
-# jQuery miniColors: A small color selector
+# jQuery Notification: A simple notifications plugin
 
 _Copyright 2011 Cory LaViska for A Beautiful Site, LLC. (http://abeautifulsite.net/)_
 
