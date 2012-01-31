@@ -5,6 +5,11 @@ _Copyright 2011 Cory LaViska for A Beautiful Site, LLC. (http://abeautifulsite.n
 _Dual licensed under the MIT / GPLv2 licenses_
 
 
+## Demo
+
+http://labs.abeautifulsite.dev/jquery-notification/
+
+
 ## Usage
 	
 ### With default settings
@@ -24,8 +29,3 @@ _Dual licensed under the MIT / GPLv2 licenses_
 	});
 
 All possible options are shown with their defaults.
-
-
-## Demo
-
-http://labs.abeautifulsite.dev/jquery-notification/
