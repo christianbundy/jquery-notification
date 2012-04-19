@@ -7,7 +7,7 @@ _Dual licensed under the MIT / GPLv2 licenses_
 
 ## Demo
 
-http://labs.abeautifulsite.dev/jquery-notification/
+http://labs.abeautifulsite.net/jquery-notification/
 
 
 ## Usage
