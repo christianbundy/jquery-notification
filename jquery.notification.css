@@ -1,8 +1,9 @@
 #jquery-notification {
-	background: transparent url(images/black-75.png) repeat;
+	background: #333;
 	border-radius: 12px;
 	padding: 20px;
 	cursor: pointer;
+	pointer-events:none;
 }
 
 #jquery-notification-message {
